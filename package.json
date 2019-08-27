@@ -2,7 +2,7 @@
   "name": "codedbyjake",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jakebenedick.github.io/codedbyjake",
+  "homepage": "https://jakebenedick.github.io/react_contact_form",
   "dependencies": {
     "gh-pages": "^2.1.1",
     "react": "^16.9.0",
