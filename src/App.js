@@ -20,8 +20,8 @@ class FormApp extends React.Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <label htmlFor="username">Enter username</label>
-                <input id="username" name="username" type="text" />
+                <label htmlFor="name">Enter your name</label>
+                <input id="name" name="name" type="text" />
 
                 <label htmlFor="email">Enter your email</label>
                 <input id="email" name="email" type="email" />
