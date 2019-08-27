@@ -5,7 +5,12 @@ import './App.css';
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {value: ''};
+        this.state = {
+            fname: '',
+            lname: '',
+            email: '',
+            message: '',
+          }
     
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,16 +31,16 @@ class App extends React.Component {
                 <p>Contact Me</p>
                 <form onSubmit={this.handleSubmit}>
                     <label>First Name</label>
-                    <input type="text" value={this.state.value} onChange={this.handleChange} placeholder="Your first name.."/>
+                    <input type="text" id="fname" name="firstname" value={this.state.fname} onChange={this.handleChange} placeholder="Your first name.."/>
 
                     <label>Last Name</label>
-                    <input type="text" id="lname" name="lastname" placeholder="Your last name.." />
+                    <input type="text" id="lname" name="lastname" value={this.state.lname} onChange={this.handleChange} placeholder="Your last name.." />
 
                     <label>Email</label>
-                    <input type="email" id="email" name="email" placeholder="Your email" />
+                    <input type="email" id="email" name="email" value={this.state.email} onChange={this.handleChange} placeholder="Your email" />
 
                     <label>Subject</label>
-                    <textarea id="subject" name="subject" placeholder="Write something.."></textarea>
+                    <textarea id="subject" name="subject" value={this.state.message} onChange={this.handleChange} placeholder="Write something.."></textarea>
 
                     <input type="submit" value="Submit" />
                 </form>
