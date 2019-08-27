@@ -26,7 +26,7 @@ class App extends React.Component {
                 <p>Contact Me</p>
                 <form onSubmit={this.handleSubmit}>
                     <label>First Name</label>
-                    <input type="text" value={this.state.value} onChange={this.handleChange} />
+                    <input type="text" value={this.state.value} onChange={this.handleChange} placeholder="Your first name.."/>
 
                     <label>Last Name</label>
                     <input type="text" id="lname" name="lastname" placeholder="Your last name.." />
