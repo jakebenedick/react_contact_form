@@ -1,51 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isGoing: true,
-            numberOfGuests: 2
-        };
-
-        this.handleInputChange = this.handleInputChange.bind(this);
+class FormApp extends React.Component {
+    constructor() {
+        super();
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleInputChange(event) {
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-    
-        this.setState({
-          [name]: value
-        });
-      }
+    handleSubmit(event) {
+        event.preventDefault();
+        const data = new FormData(event.target);
 
-      render() {
+        fetch('/api/form-submit-url', {
+            method: 'POST',
+            body: data,
+        });
+    }
+
+    render() {
         return (
-          <form>
-            <label>
-              Is going:
-              <input
-                name="isGoing"
-                type="checkbox"
-                checked={this.state.isGoing}
-                onChange={this.handleInputChange} />
-            </label>
-            <br />
-            <label>
-              Number of guests:
-              <input
-                name="numberOfGuests"
-                type="number"
-                value={this.state.numberOfGuests}
-                onChange={this.handleInputChange} />
-            </label>
-          </form>
+            <form onSubmit={this.handleSubmit}>
+                <label htmlFor="username">Enter username</label>
+                <input id="username" name="username" type="text" />
+
+                <label htmlFor="email">Enter your email</label>
+                <input id="email" name="email" type="email" />
+
+                <label htmlFor="birthdate">Enter your birth date</label>
+                <input id="birthdate" name="birthdate" type="text" />
+
+                <button>Send data!</button>
+            </form>
         );
-      }
+    }
 }
 
-export default App;
+export default FormApp;
