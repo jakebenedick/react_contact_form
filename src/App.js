@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-class NameForm extends React.Component {
+class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {value: ''};
@@ -32,3 +32,5 @@ class NameForm extends React.Component {
         );
     }
 }
+
+export default App;
