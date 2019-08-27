@@ -16,7 +16,7 @@ class App extends React.Component {
                 />
 
                 <label>Last Name</label>
-                <input type=" text" id="lname" name="lastname" placeholder="Your last name.."
+                <input type="text" id="lname" name="lastname" placeholder="Your last name.."
                     value={this.state.lname}
                     onChange={e => this.setState({ lname: e.target.value })}
                 />
