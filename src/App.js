@@ -43,16 +43,18 @@ class App extends React.Component {
       constructor(props) {
         super(props);
         this.state = {
-          fname: '',
-          lname: '',
-          email: '',
-          message: '',
+            fname: '',
+            lname: '',
+            email: '',
+            message: '',
+            mailSent: false,
+            error: null
         }
       }
 
       handleFormSubmit( event ) {
-        event.preventDefault();
-        console.log(this.state);
+            event.preventDefault();
+            console.log(this.state);
       }
 }
 
