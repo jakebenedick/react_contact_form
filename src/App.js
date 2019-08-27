@@ -5,7 +5,7 @@ import './App.css';
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { value: '' };
+        this.state = { fname: '' };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,7 +16,7 @@ class App extends React.Component {
     }
 
     handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.value);
+        alert('A name was submitted: ' + this.state.fname);
         event.preventDefault();
     }
 
@@ -25,7 +25,7 @@ class App extends React.Component {
             <form onSubmit={this.handleSubmit}>
                 <label>
                     Name:
-              <input type="text" value={this.state.value} onChange={this.handleChange} />
+              <input type="text" value={this.state.fname} onChange={this.handleChange} />
                 </label>
                 <input type="submit" value="Submit" />
             </form>
