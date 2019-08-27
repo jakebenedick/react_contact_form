@@ -8,7 +8,7 @@ class App extends React.Component {
             <div className="App">
             <p>Contact Me</p>
             <div>
-            <form action="#" >
+            <form onSubmit={this.handleSubmit}>
                 <label>First Name</label>
                 <input type="text" id="fname" name="firstname" placeholder="Your name.."
                     value={this.state.fname}
@@ -33,14 +33,14 @@ class App extends React.Component {
                     value={this.state.message}
                 ></textarea>
  
-                <input type="submit" onClick={e => this.handleFormSubmit(e)} value="Submit" />
+                <input type="submit" value="Submit" />
             </form >
             </div>
             </div>
         );
       }
 
-      constructor(props) {
+    constructor(props) {
         super(props);
         this.state = {
             fname: '',
@@ -50,12 +50,18 @@ class App extends React.Component {
             mailSent: false,
             error: null
         }
-      }
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
 
-      handleFormSubmit( event ) {
-            event.preventDefault();
-            console.log(this.state);
-      }
+    handleChange(event) {
+        this.setState({ value: event.target.value })
+    }
+
+    handleFormSubmit( event ) {
+        alert(this.state)
+        event.preventDefault();
+    }
 }
 
 
