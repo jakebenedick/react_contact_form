@@ -12,8 +12,9 @@ class FormApp extends React.Component {
         event.preventDefault();
         const data = new FormData(event.target);
 
-        this.setState({
-            res: stringifyFormData(data),
+        fetch('/api/form-submit-url', {
+            method: 'POST',
+            body: data,
         });
     }
 
