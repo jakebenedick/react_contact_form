@@ -10,6 +10,8 @@ class App extends React.Component {
             lname: '',
             email: '',
             message: '',
+            mailSent: false,
+            error: null
           }
     
         this.handleChange = this.handleChange.bind(this);
@@ -21,7 +23,7 @@ class App extends React.Component {
     }
     
     handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.value);
+        alert('A name was submitted: ' + this.state.fname + ", " + this.state.lname);
         event.preventDefault();
     }
 
