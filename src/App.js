@@ -2,68 +2,33 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-class App extends React.Component {
-    render() {
-        return (
-            <div className="App">
-            <p>Contact Me</p>
-            <div>
-            <form onSubmit={this.handleSubmit}>
-                <label>First Name</label>
-                <input type="text" id="fname" name="firstname" placeholder="Your name.."
-                    value={this.state.fname}
-                    onChange={this.handleChange}
-                />
-
-                <label>Last Name</label>
-                <input type="text" id="lname" name="lastname" placeholder="Your last name.."
-                    value={this.state.lname}
-                    onChange={this.handleChange}
-                />
-
-                <label>Email</label>
-                <input type="email" id="email" name="email" placeholder="Your email"
-                    value={this.state.email}
-                    onChange={this.handleChange}
-                />
-
-                <label>Message</label>
-                <textarea id="message" name="message" placeholder="Write something.."
-                    onChange={this.handleChange}
-                    value={this.state.message}
-                ></textarea>
- 
-                <input type="submit" value="Submit" />
-            </form>
-            </div>
-            </div>
-        );
-      }
-
+class NameForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            fname: '',
-            lname: '',
-            email: '',
-            message: '',
-            mailSent: false,
-            error: null
-        }
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.state = {value: ''};
+    
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
-
+    
     handleChange(event) {
-        this.setState({ value: event.target.value })
+        this.setState({value: event.target.value});
     }
-
-    handleFormSubmit( event ) {
-        alert(this.state)
+    
+    handleSubmit(event) {
+        alert('A name was submitted: ' + this.state.value);
         event.preventDefault();
     }
+
+    render() {
+        return (
+            <form onSubmit={this.handleSubmit}>
+            <label>
+                Name:
+                <input type="text" value={this.state.value} onChange={this.handleChange} />
+            </label>
+            <input type="submit" value="Submit" />
+          </form>
+        );
+    }
 }
-
-
-
-export default App;
