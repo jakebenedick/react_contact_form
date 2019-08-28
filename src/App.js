@@ -12,24 +12,20 @@ class FormApp extends React.Component {
         event.preventDefault();
         const data = new FormData(event.target);
 
-        fetch('/api/form-submit-url', {
-            method: 'POST',
-            body: data,
+        this.setState({
+            res: stringifyFormData(data),
         });
     }
 
     render() {
         return (
-            <div>
+            <div class = "App container">
                 <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="name">Enter your name</label>
-                    <input id="name" name="name" type="text" />
+                    <input id="name" name="name" type="text" placeholder = "Name" required/>
 
-                    <label htmlFor="email">Enter your email</label>
-                    <input id="email" name="email" type="email" />
+                    <input id="email" name="email" type="email" placeholder = "Email" required/>
 
-                    <label htmlFor="birthdate">Enter your birth date</label>
-                    <input id="birthdate" name="birthdate" type="text" />
+                    <textarea id="message" name="message" type="text" placeholder = "Leave me a message..." required/>
 
                     <button>Send data!</button>
                 </form>
@@ -46,5 +42,13 @@ class FormApp extends React.Component {
         );
     }
 }
+
+function stringifyFormData(fd) {
+    const data = {};
+      for (let key of fd.keys()) {
+        data[key] = fd.get(key);
+    }
+    return JSON.stringify(data, null, 2);
+  }
 
 export default FormApp;
